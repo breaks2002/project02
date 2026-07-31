@@ -1,0 +1,220 @@
+{
+  "env": {
+    "DISABLE_AUTOUPDATER": "1",
+    "DISABLE_UPDATES": "1",
+    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "ANTHROPIC_BASE_URL": "https://coding.dashscope.aliyuncs.com/apps/anthropic",
+    "ANTHROPIC_AUTH_TOKEN": "sk-sp-XXXXXXXXX",
+    "ANTHROPIC_MODEL": "kimi-k2.5",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "qwen3.7-plus[1m]",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "qwen3.6-plus[1m]",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "qwen3.5-plus[1m]",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "qwen3.5-plus[1m]"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(powershell:*)",
+      "Bash(pwsh:*)",
+      "Bash(cd E:\\\\MY AI\\\\ValQ:*)",
+      "Bash(cd \"E:/MY AI/ValQ\" && node -c src/store/useVDTStore.js 2>&1)",
+      "Bash(cd:*)",
+      "Bash(npm install:*)"
+    ],
+    "defaultMode": "default"
+  },
+  "model": "opus",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"SessionStart\"'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"SessionEnd\"'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"UserPromptSubmit\"'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"PreCompact\"'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"PreToolUse\"'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"PostToolUse\"'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"PostToolUseFailure\"'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"Stop\"'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"Notification-permission_prompt\"'",
+            "timeout": 30
+          }
+        ]
+      },
+      {
+        "matcher": "idle_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"Notification-idle_prompt\"'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"SubagentStart\"'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"SubagentStop\"'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "TaskCompleted": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"TaskCompleted\"'",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PermissionRequest": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'powershell.exe -ExecutionPolicy Bypass -File \"$HOME/.claude/hooks/random-speak-notification.ps1\" -Category \"PermissionRequest\"'",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash -c 'node \"$(ls -td ~/.claude/plugins/cache/claude-hud/claude-hud/*/ 2>/dev/null | head -1)dist/index.js\"'"
+  },
+  "enabledPlugins": {
+    "claude-hud@claude-hud": true,
+    "skill-creator@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-hud": {
+      "source": {
+        "source": "github",
+        "repo": "jarrodwatts/claude-hud"
+      }
+    },
+    "thedotmack": {
+      "source": {
+        "source": "github",
+        "repo": "thedotmack/claude-mem"
+      }
+    }
+  },
+  "language": "中文",
+  "alwaysThinkingEnabled": false,
+  "effortLevel": "medium",
+  "skipDangerousModePermissionPrompt": true,
+  "teammateMode": "tmux",
+  "tmuxBinary": "psmux",
+  "tmuxPaneAutoLayout": true,
+  "tmuxSplitDirection": "vertical",
+  "terminalShell": "pwsh",
+  "cdFix": true,
+  "mouseSupport": true,
+  "inheritEnv": true,
+  "inheritModel": true
+}
